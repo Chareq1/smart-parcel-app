@@ -4,9 +4,11 @@ import 'package:media_kit_video/media_kit_video.dart';
 class CameraService {
   late final Player player;
   late final VideoController controller;
+  late final String rtspUrl;
 
   CameraService(String url) {
     player = Player();
+    rtspUrl = url;
 
     if(player.platform is NativePlayer) {
       const props = {
@@ -33,5 +35,13 @@ class CameraService {
 
   void dispose() {
     player.dispose();
+  }
+
+  void connect() {
+    player.open(Media(rtspUrl));
+  }
+
+  void disconnect() {
+    player.remove(0);
   }
 }

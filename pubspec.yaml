@@ -47,6 +47,10 @@ dependencies:
   uuid: ^4.5.1
   fluttertoast: ^8.2.12
   toastification: ^3.0.3
+  connectivity_plus: ^6.1.5
+  provider: ^6.1.5+1
+  shared_preferences: ^2.5.3
+  firebase_auth: ^6.0.2
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +74,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  assets:
+    - assets/images/
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

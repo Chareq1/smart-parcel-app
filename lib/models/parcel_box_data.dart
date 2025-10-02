@@ -1,19 +1,19 @@
 class ParcelBoxData {
   bool doorState = false;
   int parcelCount = 0;
-  double distance = 0.0;
-  bool electromagneticLock = true;
-  double temperatureCelsius = 0.0;
-  double temperatureFahrenheit = 0.0;
-  double humidity = 0.0;
+  bool isSpaceAvailable = true;
+  bool mainDoorElectromagneticLock = true;
+  double temperature = 0.0;
+  bool parcelDoorStepMotorLock = true;
+  int humidity = 0;
 
   ParcelBoxData({
     required this.doorState,
     required this.parcelCount,
-    required this.distance,
-    required this.electromagneticLock,
-    required this.temperatureCelsius,
-    required this.temperatureFahrenheit,
+    required this.isSpaceAvailable,
+    required this.mainDoorElectromagneticLock,
+    required this.temperature,
+    required this.parcelDoorStepMotorLock,
     required this.humidity,
   });
 
@@ -21,11 +21,11 @@ class ParcelBoxData {
     return ParcelBoxData(
       doorState: (json['door_state'] ?? false) as bool,
       parcelCount: (json['parcel_count'] ?? 0) as int,
-      distance: (json['distance'] ?? 0.0) is num ? (json['distance'] ?? 0.0).toDouble() : 0.0,
-      electromagneticLock: (json['electromagnetic_lock_state'] ?? true) as bool,
-      temperatureCelsius: (json['temperature_celsius'] ?? 0.0) is num ? (json['temperature_celsius'] ?? 0.0).toDouble() : 0.0,
-      temperatureFahrenheit: (json['temperature_fahrenheit'] ?? 0.0) is num ? (json['temperature_fahrenheit'] ?? 0.0).toDouble() : 0.0,
-      humidity: (json['humidity'] ?? 0.0) is num ? (json['humidity'] ?? 0.0).toDouble() : 0.0,
+      isSpaceAvailable: (json['is_space_available'] ?? false) as bool,
+      mainDoorElectromagneticLock: (json['main_door_electromagnetic_lock_state'] ?? true) as bool,
+      parcelDoorStepMotorLock: (json['parcel_door_step_motor_lock_state'] ?? true) as bool,
+      temperature: (json['temperature'] ?? 0.0) is num ? (json['temperature'] ?? 0.0).toDouble() : 0.0,
+      humidity: (json['humidity'] ?? 0) is num ? (json['humidity'] ?? 0).toInt() : 0,
     );
   }
 }
