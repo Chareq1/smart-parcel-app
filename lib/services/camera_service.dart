@@ -31,15 +31,19 @@ class CameraService {
     player.open(Media(url));
   }
 
+
   VideoController getController() => controller;
+
 
   void dispose() {
     player.dispose();
   }
 
+
   void connect() {
     player.open(Media(rtspUrl));
   }
+
 
   void disconnect() {
     player.remove(0);

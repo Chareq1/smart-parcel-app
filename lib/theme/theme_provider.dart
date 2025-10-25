@@ -26,11 +26,13 @@ class ThemeProvider with ChangeNotifier {
     notifyListeners();
   }
 
+
   void saveTheme() async {
     String themeString = currentThemeData == lightMode ? 'light' : 'dark';
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('setTheme', themeString);
   }
+
 
   void loadTheme() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();

@@ -13,6 +13,7 @@ class MQTTService {
   final VoidCallback? onDisconnected;
   bool isBrokerConnected = false;
 
+
   MQTTService(
       String broker,
       List<String> topics, {
@@ -43,6 +44,7 @@ class MQTTService {
     };
   }
 
+
   Future<void> connect() async {
     try {
       await mqttClient.connect();
@@ -64,6 +66,7 @@ class MQTTService {
     }
   }
 
+
   void reset() {
     if (isBrokerConnected) {
       mqttClient.disconnect();
@@ -73,6 +76,7 @@ class MQTTService {
     connect();
   }
 
+
   void publish(String topic, String message) {
     final MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
     builder.addString(message);
@@ -80,11 +84,13 @@ class MQTTService {
         topic, MqttQos.atMostOnce, builder.payload!);
   }
 
+
   void disconnect() {
     if (isBrokerConnected) {
       mqttClient.disconnect();
     }
   }
+
 
   void dispose() {
     mqttClient.disconnect();

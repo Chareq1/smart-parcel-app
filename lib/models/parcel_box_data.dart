@@ -7,6 +7,7 @@ class ParcelBoxData {
   bool parcelDoorStepMotorLock = true;
   int humidity = 0;
 
+
   ParcelBoxData({
     required this.doorState,
     required this.parcelCount,
@@ -16,6 +17,7 @@ class ParcelBoxData {
     required this.parcelDoorStepMotorLock,
     required this.humidity,
   });
+
 
   factory ParcelBoxData.fromJson(Map<String, dynamic> json) {
     return ParcelBoxData(
